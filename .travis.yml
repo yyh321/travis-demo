@@ -1,0 +1,25 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - lts/*
+
+cache:
+  yarn: true
+
+notification:
+  on_success: never
+  on_failure: change
+
+script:
+  - yarn build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  keep_history: true
+  github_token: $MY_GITHUB_TOKEN
+  local_dir: build
+
+
