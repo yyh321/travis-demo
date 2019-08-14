@@ -16,10 +16,11 @@ script:
   - yarn build
 
 deploy:
-  provider: page1
+  provider: pages
   skip_cleanup: true
+  github_token: $MY_GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
-  github_token: $MY_GITHUB_TOKEN
-  local_dir: build
+  on:
+    branch: master
 
 
